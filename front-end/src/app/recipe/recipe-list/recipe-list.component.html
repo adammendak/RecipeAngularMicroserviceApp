@@ -1,21 +1,11 @@
 <div class="row">
   <div class="col-sm-12">
-    <button class="btn btn-success">new recipe</button>
+    <button id="newRecipeButton" class="btn btn-success mt-2 mb-2 clearfix">new recipe</button>
   </div>
   <hr>
   <div class="col-sm-12">
-    <a
-      href="#"
-      class="list-group-item clearfix"
-      *ngFor="let recipe of recipes">
-      <div>
-        <h4 class="list-group-item-heading">{{recipe.name}}</h4>
-        <p class="list-group-item-text">{{recipe.description}}</p>
-        <span class="float-right">
-          <img [src]="recipe.imgPath" [alt]="recipe.name" class="img-fluid" style="max-height: 50px!important;">
-        </span>
-      </div>
-    </a>
-    <app-recipe-item></app-recipe-item>
+    <app-recipe-item *ngFor="let recipeEl of recipes"
+                     [recipe] = recipeEl
+                     (recipeEmiter)="showRecipeInDetails(recipeEl)"></app-recipe-item>
   </div>
 </div>

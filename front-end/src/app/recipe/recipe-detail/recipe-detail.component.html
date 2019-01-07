@@ -1,9 +1,11 @@
 <div class="row">
   <div class="col-sm-12">
-    <img src="" alt="" class="img-fluid">
+    <img [src]="recipeReceived.imgPath"
+         [alt]="recipeReceived.imgPath"
+         class="img-fluid">
   </div>
     <div class="col-sm-12">
-      <h1>recipe name</h1>
+      <h1>{{recipeReceived.name}}</h1>
     </div>
     <div class="col-sm-12">
       <div class="btn-group">
@@ -19,7 +21,7 @@
       </div>
     </div>
     <div class="col-sm-12">
-      Description
+      {{recipeReceived.description}}
     </div>
     <div class="col-sm-12">
       Ingredients
