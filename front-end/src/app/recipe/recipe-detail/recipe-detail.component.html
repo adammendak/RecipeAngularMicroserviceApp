@@ -9,30 +9,37 @@
     </div>
     <div class="col-sm-12">
       <div class="btn-group">
-        <button type="button"
-                class="btn btn-primary dropdown-toggle"
-                id="dropdownMenuButton"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false">
-          Manage Recipe<span class="caret"></span>
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Add ingredients to shopping list</a>
-          <a class="dropdown-item" href="#">edit recipe</a>
-          <a class="dropdown-item" href="#">delete recipe</a>
+        <div ngbDropdown class="dropdown">
+          <button ngbDropdownToggle
+                  type="button"
+                  class="btn btn-primary dropdown-toggle"
+                  id="dropdownMenuButton"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false">
+            Manage Recipe<span class="caret"></span>
+          </button>
+          <div ngbDropdownMenu
+               class="dropdown-menu"
+               aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" (click)="addToShoppingList()" e>Add ingredients to shopping list</a>
+            <a class="dropdown-item" href="#">edit recipe</a>
+            <a class="dropdown-item" href="#">delete recipe</a>
+          </div>
         </div>
-        <!--<ul class="dropdown-menu">-->
-          <!--<li><a href="#">Add ingredients to shopping list</a></li>-->
-          <!--<li><a href="#">edit recipe</a></li>-->
-          <!--<li><a href="#">delete recipe</a></li>-->
-        <!--</ul>-->
       </div>
     </div>
     <div class="col-sm-12">
       {{recipeReceived.description}}
     </div>
+  <div class="row">
     <div class="col-sm-12">
-      Ingredients
+      <h4>Ingredients</h4>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let ingredient of recipeReceived.ingredients">
+          name: {{ingredient.name}} amount: {{ingredient.amount}}
+        </li>
+      </ul>
     </div>
+  </div>
 </div>

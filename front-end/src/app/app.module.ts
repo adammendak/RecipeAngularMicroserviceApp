@@ -11,6 +11,9 @@ import { RecipeDetailComponent } from './recipe/recipe-detail/recipe-detail.comp
 import { RecipeItemComponent } from './recipe/recipe-list/recipe-item/recipe-item.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {RecipeService} from "./shared/services/recipe.service";
+import {ShoppingListService} from "./shared/services/shoppingList.service";
 
 const appRoutes: Routes = [
   {path: 'recipe', component: RecipeComponent},
@@ -31,9 +34,11 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    NgbModule,
   ],
-  providers: [],
+  providers: [RecipeService,
+              ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
