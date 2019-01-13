@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { RecipeComponent } from './recipe/recipe.component';
-import {RouterModule, Routes} from "@angular/router";
 import { RecipeListComponent } from './recipe/recipe-list/recipe-list.component';
 import { RecipeDetailComponent } from './recipe/recipe-detail/recipe-detail.component';
 import { RecipeItemComponent } from './recipe/recipe-list/recipe-item/recipe-item.component';
@@ -14,11 +13,8 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {RecipeService} from "./shared/services/recipe.service";
 import {ShoppingListService} from "./shared/services/shoppingList.service";
-
-const appRoutes: Routes = [
-  {path: 'recipe', component: RecipeComponent},
-  {path: 'shopping-list', component: ShoppingListComponent}
-];
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +25,13 @@ const appRoutes: Routes = [
     RecipeDetailComponent,
     RecipeItemComponent,
     ShoppingListComponent,
-    ShoppingEditComponent
+    ShoppingEditComponent,
+    ErrorPageComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes),
     NgbModule,
   ],
   providers: [RecipeService,
