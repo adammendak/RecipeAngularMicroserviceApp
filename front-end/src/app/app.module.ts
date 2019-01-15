@@ -15,6 +15,8 @@ import {RecipeService} from "./shared/services/recipe.service";
 import {ShoppingListService} from "./shared/services/shoppingList.service";
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { HomeComponent } from './home/home.component';
+import { RecipeHomeComponent } from './recipe/recipe-home/recipe-home.component';
+import { RecipeEditComponent } from './recipe/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { HomeComponent } from './home/home.component';
     ShoppingListComponent,
     ShoppingEditComponent,
     ErrorPageComponent,
-    HomeComponent
+    HomeComponent,
+    RecipeHomeComponent,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,
