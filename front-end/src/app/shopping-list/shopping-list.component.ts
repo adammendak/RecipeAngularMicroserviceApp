@@ -29,8 +29,6 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-
-
   addIngredient($event: Ingredient) {
     this.ingredients.push($event)
   }
