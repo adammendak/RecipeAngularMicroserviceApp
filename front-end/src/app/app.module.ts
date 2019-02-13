@@ -17,6 +17,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { HomeComponent } from './home/home.component';
 import { RecipeHomeComponent } from './recipe/recipe-home/recipe-home.component';
 import { RecipeEditComponent } from './recipe/recipe-edit/recipe-edit.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { RecipeEditComponent } from './recipe/recipe-edit/recipe-edit.component'
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    FormsModule
   ],
   providers: [RecipeService,
               ShoppingListService],

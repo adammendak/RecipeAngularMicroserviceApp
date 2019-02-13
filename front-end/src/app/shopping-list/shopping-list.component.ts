@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Ingredient} from "../shared/model/ingredient.model";
 import {ShoppingListService} from "../shared/services/shoppingList.service";
-import {Subscription} from "rxjs";
+import {Subject, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-shopping-list',
@@ -12,6 +12,8 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
 
   private ingredients: Ingredient[];
   private subscription: Subscription;
+
+
 
   constructor(private shoppingListService: ShoppingListService) { }
 
@@ -31,5 +33,9 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
 
   addIngredient($event: Ingredient) {
     this.ingredients.push($event)
+  }
+
+  onEditItem(index: number) {
+    this.shoppingListService.startedEditing.next(index);
   }
 }
