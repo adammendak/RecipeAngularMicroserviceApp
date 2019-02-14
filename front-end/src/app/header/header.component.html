@@ -35,9 +35,8 @@
         <div ngbDropdownMenu
              class="dropdown-menu"
              aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item">Action</a>
-          <a class="dropdown-item">Another action</a>
-          <a class="dropdown-item">Something else here</a>
+          <a class="dropdown-item" (click)="saveRecipesToDB()">Save Recipes</a>
+          <a class="dropdown-item" (click)="fetchData()">Fetch Recipes</a>
         </div>
       </li>
     </ul>

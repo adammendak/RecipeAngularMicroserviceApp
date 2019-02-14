@@ -22,6 +22,11 @@ export class RecipeService {
       [new Ingredient("jajko", 12), new Ingredient("bułka", 5)])
   ];
 
+  public setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
   public getRecipes() {
     return this.recipes.slice();
   }

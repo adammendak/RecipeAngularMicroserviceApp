@@ -10,14 +10,16 @@ import { RecipeDetailComponent } from './recipe/recipe-detail/recipe-detail.comp
 import { RecipeItemComponent } from './recipe/recipe-list/recipe-item/recipe-item.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {RecipeService} from "./shared/services/recipe.service";
-import {ShoppingListService} from "./shared/services/shoppingList.service";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RecipeService } from "./shared/services/recipe.service";
+import { ShoppingListService } from "./shared/services/shoppingList.service";
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { HomeComponent } from './home/home.component';
 import { RecipeHomeComponent } from './recipe/recipe-home/recipe-home.component';
 import { RecipeEditComponent } from './recipe/recipe-edit/recipe-edit.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpService } from "./shared/services/http.service";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -39,10 +41,12 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     AppRoutingModule,
     NgbModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule
   ],
   providers: [RecipeService,
-              ShoppingListService],
+              ShoppingListService,
+              HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
