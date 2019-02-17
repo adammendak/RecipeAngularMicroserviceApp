@@ -19,7 +19,11 @@ import { RecipeHomeComponent } from './recipe/recipe-home/recipe-home.component'
 import { RecipeEditComponent } from './recipe/recipe-edit/recipe-edit.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpService } from "./shared/services/http.service";
-import { HttpClientModule } from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {AuthInterceptor} from "./shared/interceptors/auth.interceptor";
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
+import { SignInComponent } from './auth/sign-in/sign-in.component';
+import {AuthService} from "./shared/services/auth.service";
 
 @NgModule({
   declarations: [
@@ -34,7 +38,9 @@ import { HttpClientModule } from "@angular/common/http";
     ErrorPageComponent,
     HomeComponent,
     RecipeHomeComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    SignUpComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +52,10 @@ import { HttpClientModule } from "@angular/common/http";
   ],
   providers: [RecipeService,
               ShoppingListService,
-              HttpService],
+              HttpService,
+              AuthService,
+              {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+              ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
