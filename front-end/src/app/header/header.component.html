@@ -22,10 +22,16 @@
       </li>
     </ul>
     <ul class="navbar-nav">
+      <ng-template [ngIf]="!auth.isAuthenticated()">
       <li class="nav-item"><a class="nav-link" routerLink="signUp" routerLinkActive="active">Register</a></li>
       <li class="nav-item"><a class="nav-link" routerLink="signIn" routerLinkActive="active">Sign In</a></li>
+      </ng-template>
+      <li>
+        <a class="nav-link" style="cursor: pointer" (click)="logOut()" *ngIf="auth.isAuthenticated()">LogOut</a>
+      </li>
       <li ngbDropdown
-          class="nav-item dropdown">
+          class="nav-item dropdown"
+          *ngIf="auth.isAuthenticated()">
         <a ngbDropdownToggle
            class="nav-link dropdown-toggle"
            d="navbarDropdownMenuLink"
@@ -36,7 +42,8 @@
         </a>
         <div ngbDropdownMenu
              class="dropdown-menu"
-             aria-labelledby="navbarDropdownMenuLink">
+             aria-labelledby="navbarDropdownMenuLink"
+            >
           <a class="dropdown-item" (click)="saveRecipesToDB()">Save Recipes</a>
           <a class="dropdown-item" (click)="fetchData()">Fetch Recipes</a>
         </div>

@@ -26,4 +26,12 @@ export class AuthService {
       })
       .catch(error => console.log(error));
   }
+
+  isAuthenticated() {
+    return firebase.auth().currentUser != null;
+  }
+
+  logOut() {
+    firebase.auth().signOut();
+  }
 }
