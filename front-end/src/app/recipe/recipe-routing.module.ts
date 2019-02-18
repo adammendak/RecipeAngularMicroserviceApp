@@ -6,7 +6,7 @@ import {RecipeDetailComponent} from "./recipe-detail/recipe-detail.component";
 import {NgModule} from "@angular/core";
 
 const recipeRoutes: Routes = [
-  {path: 'recipe', component: RecipeComponent, children:[
+  {path: '', component: RecipeComponent, children:[
       {path: '', component: RecipeHomeComponent},
       {path: 'new', component: RecipeEditComponent},
       {path: ':id', component: RecipeDetailComponent},

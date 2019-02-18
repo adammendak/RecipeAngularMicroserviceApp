@@ -27,7 +27,6 @@ import {AuthModule} from "./auth/auth.module";
     HomeComponent
   ],
   imports: [
-    RecipeModule,
     ShoppingModule,
     BrowserModule,
     AuthModule,

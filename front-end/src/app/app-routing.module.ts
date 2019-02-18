@@ -5,6 +5,7 @@ import { HomeComponent } from "./home/home.component";
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'recipe', loadChildren: './recipe/recipe.module#RecipeModule'},
   {path: '404', component:ErrorPageComponent},
   {path: '**', redirectTo: '/404', pathMatch: 'full'}
 ];
