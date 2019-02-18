@@ -45,8 +45,6 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-
-
   onSubmit(form: NgForm) {
     const value = form.value;
 
