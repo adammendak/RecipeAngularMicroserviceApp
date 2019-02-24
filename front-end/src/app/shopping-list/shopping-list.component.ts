@@ -1,38 +1,43 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Ingredient} from "../shared/model/ingredient.model";
 import {ShoppingListService} from "../shared/services/shoppingList.service";
-import {Subject, Subscription} from "rxjs";
+import {Observable, Subject, Subscription} from "rxjs";
+import { Store } from "@ngrx/store";
+import {AddIngredient} from "./store/shopping-list.actions";
+import * as fromShoppingList from './store/shopping-list.reducers';
 
 @Component({
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
   styleUrls: ['./shopping-list.component.css']
 })
-export class ShoppingListComponent implements OnInit, OnDestroy {
+export class ShoppingListComponent implements OnInit {
 
-  private ingredients: Ingredient[];
-  private subscription: Subscription;
+  // private shoppingListState: Ingredient[];
+  private shoppingListState: Observable<{ingredients: Ingredient[]}>;
+  // private subscription: Subscription;
 
-
-
-  constructor(private shoppingListService: ShoppingListService) { }
+  constructor(private shoppingListService: ShoppingListService, private store: Store<fromShoppingList.AppState>) { }
 
   ngOnInit() {
-    this.ingredients = this.shoppingListService.getIngredients();
-    this.subscription = this.shoppingListService.ingredientsChanged
-      .subscribe(
-        (ingredients: Ingredient[]) => {
-          this.ingredients = ingredients;
-        }
-      )
+    // this.shoppingListState = this.shoppingListService.getIngredients();
+    this.shoppingListState = this.store.select('shoppingList');
+    // this.subscription = this.shoppingListService.ingredientsChanged
+    //   .subscribe(
+    //     (shoppingListState: Ingredient[]) => {
+    //       this.shoppingListState = shoppingListState;
+    //     }
+    //   )
+
   }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
+  // ngOnDestroy(): void {
+  //   this.subscription.unsubscribe();
+  // }
 
   addIngredient($event: Ingredient) {
-    this.ingredients.push($event)
+    // this.shoppingListState.push($event)
+    // this.store.dispatch(new AddIngredient)
   }
 
   onEditItem(index: number) {
