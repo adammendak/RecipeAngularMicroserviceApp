@@ -27,7 +27,7 @@ export function shoppingListReducer(state = initialState, action) {
     case ShoppingListActions.ADD_INGREDIENT:
       return {
         ...state,
-        ingredients: [...state.ingredients, action.payload] //poniewaz dodalismy do typu action pole payload mozemy teraz uzyc
+        ingredients: [...state.ingredients, action.payload]
       };
 
     case ShoppingListActions.ADD_INGREDIENTS:
